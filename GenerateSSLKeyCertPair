@@ -1,0 +1,4 @@
+openssl req -new -x509 -keyout Key.key -out Cert.cer -days 365 -nodes
+
+#Key.key for private (don't not shre it)
+#Cert.cer for public

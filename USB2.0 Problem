@@ -1,0 +1,6 @@
+Just a follow up to linuxbuild's answer...
+
+For this particular camera, which I also own, on LinuxMint 18.3, I added the following to /etc/modprobe.d/blacklist-modem.conf, and it worked after reboot:
+
+blacklist usb_wwan
+install usb_wwan /bin/false

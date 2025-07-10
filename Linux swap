@@ -19,3 +19,6 @@ chmod 600 /swapfile
 mkswap /swapfile
 
 swapon /swapfile
+
+#same say better use partition as ram
+#this is not "partition as ram"

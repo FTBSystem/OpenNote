@@ -1,0 +1,21 @@
+sudo swapoff /swapfile
+
+sudo fallocate -l 8G /swapfile
+
+sudo mkswap /swapfile
+
+sudo swapon /swapfile
+
+//--------------------------------
+
+truncate -s 0 /swapfile
+
+chattr +C /swapfile
+
+fallocate -l 8G /swapfile
+
+chmod 600 /swapfile
+
+mkswap /swapfile
+
+swapon /swapfile

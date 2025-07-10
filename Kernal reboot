@@ -1,0 +1,11 @@
+#sudo reboot
+#sudo init 6 
+#id all not working use below command
+
+sudo echo 1 > /proc/sys/kernel/sysrq
+
+sudo echo b > /proc/sysrq-trigger
+
+#only use this when your Liunx cannot reboot normal
+#not a good ways to reboot
+#you should check why your OS cannot reboot normal

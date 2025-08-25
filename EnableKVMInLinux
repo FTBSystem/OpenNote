@@ -1,0 +1,12 @@
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER
+
+lsmod | grep kvm
+
+qemu-system-x86_64 -hda 500G.qcow2 -m 8192 -vga qxl -smp 24 -enable-kvm -cpu kvm64

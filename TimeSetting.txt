@@ -1,0 +1,51 @@
+sudo apt remove systemd-timesyncd --purge #removed systemd-timesyncd
+
+sudo apt install systemd-timesyncd -y #install systemd-timesyncd
+
+systemctl start systemd-timesyncd.service #start systemd-timesyncd
+
+sudo apt-get install util-linux-extra -y #install hwclock
+
+sudo timedatectl set-ntp true  #use NTP
+
+sudo timedatectl set-local-rtc 1 --adjust-system-clock #sync RTC/System clock clock
+
+sudo hwclock -w #(Set hardware clock from system time)
+
+sudo hwclock -s #(Set system time from hardware clock)
+
+sudo hwclock -r #(Show hardware clock time)
+
+timedatectl #see all work
+
+systemctl enable systemd-timesyncd.service #auto start systemd-timesyncd when OS boot
+
+#some computer do not have RTC. 
+
+#if the systemd-timesyncd can't ntp server 
+#do the following
+
+sudo nano /etc/systemd/timesyncd.conf  
+
+[Time]
+NTP=http://www.ntp.org
+FallbackNTP=ntp.ubuntu.com
+#RootDistanceMaxSec=5
+#PollIntervalMinSec=32
+#PollIntervalMaxSec=2048
+#ConnectionRetrySec=30
+#SaveIntervalSec=60
+
+sudo systemctl daemon-reload 
+sudo timedatectl set-ntp off #Stop NTP
+sudo timedatectl set-ntp on #Start NTP
+
+sudo timedatectl set-timezone <time zone> #Set time zone
+
+#sudo timedatectl set-timezone EST
+
+sudo timedatectl list-timezones #list all valid time zone
+
+sudo dpkg-reconfigure tzdata #Terminal UI
+
+#Set System clock to network time

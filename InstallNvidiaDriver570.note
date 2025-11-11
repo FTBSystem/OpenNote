@@ -1,0 +1,16 @@
+#!/bin/dash
+
+sudo apt install nvidia-driver-570 -y
+sudo prime-select nvidia
+
+echo "Need reboot"
+
+read DUMMY
+
+reboot
+
+
+#Dual display test
+#Cheese (Camera software)
+#Firefox about:support GPU detect detection
+#Numba CUDA GPU ptx

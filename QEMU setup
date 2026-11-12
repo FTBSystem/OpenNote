@@ -4,6 +4,10 @@ sudo apt install qemu-system libguestfs-tools libvirt-clients libvirt-daemon-sys
 sudo usermod -aG libvirt $USER
 sudo usermod -aG kvm $USER
 
+sudo chown root:kvm /dev/kvm
+sudo chmod 660 /dev/kvm
+sudo udevadm control --reload-rules
+
 sudo systemctl enable --now libvirtd
 
 virt-host-validate

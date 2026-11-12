@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt install qemu-system libguestfs-tools libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf swtpm -y
+
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+
+sudo systemctl enable --now libvirtd
+
+virt-host-validate
+
+qemu-system-x86_64 -m 10240 -vga qxl -smp 24 -enable-kvm -cpu kvm64 -hda <disk name>
+
+qemu-system-x86_64 -m 10240 -vga qxl -smp 24 -enable-kvm -cpu host -hda <disk name> #some software need host to work
